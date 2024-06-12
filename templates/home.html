@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Home</title>
 </head>
-<body>
-    <h1>Bienvenido!</h1>
-    <a href="../index.html">Cerrar Sesion</a>
-</body>
+<body onload="viewNotes()">
+    <header>
+        <h1 id="greetings"></h1>
+        <a href="../index.html">Cerrar Sesion</a>    
+    </header>    
+    <main>
+        <div class="cardNote">
+            <form>
+                <h2 id="noteTitle"></h2>
+                <p id="noteDate"></p>
+                <p id="noteDesc"></p>
+                <button>Cerrar</button>
+            </form>
+        </div>
+        </main>
+    <script src="../assets/js/main.js"></script>
+    </body>
 </html>
