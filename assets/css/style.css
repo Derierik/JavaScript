@@ -1,8 +1,17 @@
+@import url('https://fonts.google.com/specimen/Space+Grotesk');
+
+
+
 *
 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body{
+    /* background-color: #0077b6; */
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .card{
@@ -69,23 +78,46 @@ form.button:hover{
 }
 
 header{
-    height: 40px;
+    height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 20px 20px 20px 20px;
 }
 
+main{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+
+
+}
+
 .cardNote{
-    width: 100%;
-    height: 100vh;
+    width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-}
+    background-color: #00b4d8;
+    border: none;
+    border-radius: 16px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 5px 5px 3px 3px #ccc;
 
-.cardNote div{
-    display: flex;
-    justify-content: space-between;
+    .noteHeader{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .noteBody{
+        text-align: center;
+        width: 100%;
+        padding: 20px 0 20px 0;
+    }
+    
 }
+    
+    
