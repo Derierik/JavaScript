@@ -1,7 +1,7 @@
 const persona = {
-    firstName: "Kevin",
-    lastName: "Soto",
-    userName: "matidev.js",
+    firstName: "coder",
+    lastName: "house",
+    userName: "coderhouse",
     userPass: "CoderHouse123"
 }
 
@@ -66,7 +66,7 @@ const $greetings = document.getElementById("greetings"),
     }
 
     function viewNotes(){
-        $greetings.innerHTML = "Bienvenido! " + persona.firstName;
+        $greetings.innerHTML = "Bienvenido! " + persona.firstName + ' '+ persona.lastName;
         $noteTitle.innerHTML = notes.noteTitle;
         $noteDate.innerHTML = notes.noteDate;
         $noteDesc.innerHTML = notes.noteDesc;
