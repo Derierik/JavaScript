@@ -12,37 +12,148 @@
         <a href="../index.html">Cerrar Sesion</a>    
     </header>    
     <main>
-        <div class="cardNote">
-            <div class="noteHeader">
-                <h2 id="noteTitle"></h2>
-                <p id="noteDate"></p>
-            </div>
-            <div class="noteBody">
-                <p id="noteDesc"></p>
-            </div>
-            <button>Cerrar</button>
+        <div class="form">
+            <form action="" method="POST" class="form-calc">
+                <div class="contrato">
+                        <label for="tipo">Contrato</label>
+                        <select name="" id="tipo">
+                            <option value="0">Mensual</option>
+                            <option value="1">Quincenal</option>
+                            <option value="2">Semanal</option>
+                            <option value="3">Diario</option>
+                        </select>
+                    </div>
+                    <div class="plazo">
+                        <label for="plazo">Plazo contrato</label>
+                        <select name="" id="plazo">
+                            <option value="0">Indefinido</option>
+                            <option value="1">Fijo</option>
+                        </select>
+                </div>
+                <div class="haberes">
+                    <div class="base">
+                        <label for="base">Sueldo Base</label>
+                        <input type="text" id="base" placeholder="Sueldo Base">
+                    </div>
+
+                    <div class="ausente">
+                        <label for="ausente">Días ausente</label>
+                        <select name="" id="ausente">
+                            <option value="0">No</option>
+                            <option value="1">Si, Licencia</option>
+                            <option value="2">Si, Ausencia</option>
+                            <option value="3">Si, Fracción</option>
+                        </select>
+                    </div>
+
+                    <div class="cant-ausente">
+                        <label for="cant-ausente">Cantidad días ausente</label>
+                        <input type="text" id="cant-ausente" placeholder="Cantidad de días">
+                    </div>
+
+                    <div class="gratificacion">
+                        <label for="gratificacion">Gratificacion</label>
+                        <select name="" id="gratificacion">
+                            <option value="0">Si</option>
+                            <option value="1">No</option>
+                            <option value="2">Editar</option>
+                        </select>
+                    </div>
+
+                    <div class="valor-grat">
+                        <label for="gratificacion">Valor Gratificacion</label>
+                        <input type="text" name="gratificacion" id="gratificacion" placeholder="">
+                    </div>
+
+                    <div class="hhee">
+                        <label for="hhee">Horas Extra</label>    
+                        <input type="text" id="hhee" placeholder="Cantidad">
+                    </div>
+
+                    <div class="valor-hhee">
+                        <label for="valorhhee">Valor Hrs. extra</label>
+                        <input type="text" id="valorhhee" placeholder="valor hrs. extra">
+                    </div>
+                    <div class="otros">
+                        <label for="comisiones">Comisiones</label>
+                        <input type="text" id="comisiones" placeholder="(Opcional)"> 
+                        <label for="corrida">Semana Corrida</label>
+                        <input type="text" id="corrida" placeholder="(Opcional)">
+                        <label for="bonos">Bonos</label>
+                        <input type="text" id="bonos" placeholder="(Opcional)">
+                    </div>
+
+                    <div class="colacion">
+                        <label for="colacion">colacion</label>
+                        <input type="text" id="colacion" placeholder="(Opcional)">
+                    </div>
+
+                    <div class="movilizacion">
+                        <label for="movilizacion">Movilizacion</label>
+                        <input type="text" id="movilizacion" placeholder="(Opcional)">
+                    </div>
+                    <div class="asignacion">
+                        <label for="asignacion">Asignacion familiar</label>
+                        <input type="text" id="asignacion" placeholder="(Opcional)">
+                    </div>
+                    
+                </div>
+                <div class="descuentos">
+                    <div class="afp">
+                        <label for="afp">AFP</label>
+                        <select name="afp" id="afp">
+                            <option value="0">Seleccione una AFP</option>
+                            <option value="1">Capital</option>
+                            <option value="2">Cuprum</option>
+                            <option value="3">Habitat</option>
+                            <option value="4">Modelo</option>
+                            <option value="5">Planvital</option>
+                            <option value="6">Provida</option>
+                            <option value="7">Uno</option>
+                            <option value="8">Primer Trabajo</option>
+                            <option value="9">No cotiza</option>
+                        </select>
+                    </div>
+                    <div class="valor-afp">
+                        <label for="valorafp">Total AFP</label>
+                        <input type="text" id="valorafp" placeholder="">
+                    </div>
+                    <div class="fonasa">
+                        <label for="fonasa">Fonasa</label>
+                        <select name="fonasa" id="fonasa">
+                            <option value="0">Fonasa</option>
+                            <option value="1">Isapre</option>
+                        </select>
+                    </div>
+                    <div class="valor-fonasa">
+                        <label for="valorfonasa">Total salud</label>
+                        <input type="text" placeholder="" disabled>
+                    </div>
+                    <div class="seguro">
+                        <label for="seguro">Seguro de cesantía</label>
+                        <input type="text" id="seguro" placeholder="" disabled>
+                    </div>
+                    <div class="impuesto">
+                        <label for="impuesto">Impuesto</label>
+                        <input type="text" id="impuesto" placeholder="" disabled>
+                    </div>
+                    <div class="apv">
+                        <label for="apv">apv</label>
+                        <input type="text" id="apv" placeholder="(Opcional)">
+                    </div>
+                    <div class="otros-dsctos-legales">
+                        <label for="dsctos">Otros Descuentos Legales</label>
+                        <input type="text" id="dsctos" placeholder="(Opcional)">
+                    </div>
+                    <div class="otros-dsctos">
+                        <label for="otros-dsctos">Otros Descuentos</label>
+                        <input type="text" id="otros-dsctos" placeholder="(Opcional)">
+                    </div>
+                    <input type="text" placeholder="">
+                </div>
+            </form>
         </div>
-        <div class="cardNote">
-            <div class="noteHeader">
-                <h2 id="noteTitle1"></h2>
-                <p id="noteDate1"></p>
-            </div>
-            <div class="noteBody">
-                <p id="noteDesc1"></p>
-            </div>
-            <button>Cerrar</button>
-        </div>
-        <div class="cardNote">
-            <div class="noteHeader">
-                <h2 id="noteTitle2"></h2>
-                <p id="noteDate2"></p>
-            </div>
-            <div class="noteBody">
-                <p id="noteDesc2"></p>
-            </div>
-            <button>Cerrar</button>
-        </div>
-        </main>
+    </main>
     <script src="../assets/js/main.js"></script>
     </body>
 </html>

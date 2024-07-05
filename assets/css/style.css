@@ -1,7 +1,5 @@
 @import url('https://fonts.google.com/specimen/Space+Grotesk');
 
-
-
 *
 {
     box-sizing: border-box;
@@ -22,7 +20,7 @@ body{
     align-items: center;
 }
 
-form{
+.login-form{
     background-color: #fff;
     width: 300px;
     height: 370px;
@@ -86,38 +84,131 @@ header{
 }
 
 main{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    justify-content: center;
-    padding: 20px 20px 20px 20px;
-
-
-}
-
-.cardNote{
-    width: 90%;
-    height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    background-color: #00b4d8;
-    border: none;
-    border-radius: 16px;
+    align-items: center;
     padding: 20px 20px 20px 20px;
-    box-shadow: 5px 5px 3px 3px #ccc;
-
-    .noteHeader{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .noteBody{
-        text-align: center;
-        width: 100%;
-        padding: 20px 0 20px 0;
-    }
-    
 }
+
+.form{
+    display: flex;
+    width: 70%;
+    height: 100vh;
+    background-color: #fff;
+    border: #ccc solid 1px;
+
+    padding: 20px 20px 20px 20px;
+
+}
+
+.form-calc{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "contrato plazo"
+    "haberes descuentos"
+    ;
+    .contrato{
+        grid-area: contrato;
+        height: fit-content;
+    }
     
-    
+    .plazo{
+        grid-area: plazo;
+    }
+
+    .haberes{
+
+        display: grid;
+        grid-template-columns: 50%;
+        grid-template-areas:
+        "base           base"
+        "ausente        cant-ausente"
+        "gratificacion  valor-grat"
+        "hhee           valor-hhee"
+        "otros          otros"
+        "otros          otros"
+        "asignacion     asignacion"
+        "colacion       movilizacion"
+        ;
+
+        
+        .padding{
+            grid-area: padding;
+        }
+        .ausente{
+            grid-area: ausente;
+        }
+        .cant-ausente{
+            grid-area: cant-ausente;
+        }
+        .gratificacion{
+            grid-area: gratificacion;
+        }
+        .valor-grat{
+            grid-area: valor-grat;
+        }
+        .hhee{
+            grid-area: hhee;
+        }
+        .valor-hhee{
+            grid-area: valor-hhee;
+        }
+        .otros{
+            grid-area: otros;
+        }
+        .colacion{
+            grid-area: colacion;
+        }
+        .movilizacion{
+            grid-area: movilizacion;
+        }
+        .asignacion{
+            grid-area: asignacion;
+        }
+    }
+
+    .descuentos{
+        display: grid;
+        grid-template-areas: 
+
+        "afp        valor-afp"
+        "fonasa     valor-fonasa"
+        "seguro     seguro"
+        "impuesto   impuesto"
+        "apv        apv"
+        "otros-dsctos-legales otros-dsctos-legales"
+        "otros-dsctos   otros-dsctos"
+        
+        ;
+
+            .afp{
+                grid-area: afp;
+            }
+            .valor-afp{
+                grid-area: valor-afp;
+            }
+            .fonasa{
+                grid-area: fonasa;
+            }
+            .valor-fonasa{
+                grid-area: valor-fonasa;
+            }
+            .seguro{
+                grid-area: seguro;
+            }
+            .impuesto{
+                grid-area: impuesto;
+            }
+            .apv{
+                grid-area: apv;
+            }
+            .otros-dsctos-legales{
+                grid-area: otros-dsctos-legales;
+            }
+            .otros-dsctos{
+                grid-area: otros-dsctos;
+            }
+    }
+}
