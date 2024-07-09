@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Home</title>
 </head>
-<body onload="viewNotes()">
+<body>
     <header>
         <h1 id="greetings"></h1>
         <a href="../index.html">Cerrar Sesion</a>    
@@ -16,7 +16,7 @@
             <h1>Calculadora de sueldo liquido</h1>
         </div>
         <div class="form">
-            <form action="" method="POST" class="form-calc">
+            <div action="" method="POST" class="form-calc">
                 <div class="contrato">
                     <label for="tipo">Contrato</label>
                     <select name="" id="tipo">
@@ -37,9 +37,9 @@
                     <div class="title">
                         <h2>Haberes</h2>
                     </div>
-                    <div class="base">
+                    <div class="sueldo_base">
                         <label for="base">Sueldo Base</label>
-                        <input type="text" id="base" placeholder="Sin puntos" onkeyup="calcularLiquido()">
+                        <input type="text" id="base" placeholder="Sin puntos" autocomplete="off">
                     </div>
                     <div class="ausente">
                         <label for="ausente">Días ausente</label>
@@ -50,9 +50,9 @@
                             <option value="3">Si, Fracción</option>
                         </select>
                     </div>
-                    <div class="cant-ausente" style="display: none;">
-                        <label for="cant-ausente">Cantidad días ausente</label>
-                        <input type="text" id="cant-ausente" placeholder="Cantidad de días">
+                    <div class="cant_ausente" id="div_cant_ausente" style="display: none;">
+                        <label for="cant_ausente">Cantidad días ausente</label>
+                        <input type="text" id="cant_ausente" placeholder="Cantidad de días" autocomplete="off">
                     </div>
                     <div class="gratificacion">
                         <label for="gratificacion">Gratificacion</label>
@@ -62,41 +62,41 @@
                             <option value="2">Editar</option>
                         </select>
                     </div>
-                    <div class="valor-grat">
-                        <label for="gratificacion">Valor Gratificacion</label>
-                        <input type="text" name="gratificacion" id="gratificacion" placeholder="">
+                    <div class="valor_gratificacion">
+                        <label for="valor_grat">Valor Gratificacion</label>
+                        <input type="text" name="gratificacion" id="valor_grat" placeholder="" autocomplete="off" disabled>
                     </div>
                     <div class="hhee">
                         <label for="hhee">Horas Extra</label>    
-                        <input type="text" id="hhee" placeholder="Cantidad">
+                        <input type="text" id="hhee" placeholder="Cantidad" autocomplete="off">
                     </div>
                     <div class="valor-hhee">
                         <label for="valorhhee">Valor Hrs. extra</label>
-                        <input type="text" id="valorhhee" placeholder="">
+                        <input type="text" id="valorhhee" placeholder="" autocomplete="off">
                     </div>
                     <div class="otrosa">
                         <label for="comisiones">Comisiones</label>
-                        <input type="text" id="comisiones" placeholder="(Opcional)"> 
+                        <input type="text" id="comisiones" placeholder="(Opcional)" autocomplete="off"> 
                     </div>
                     <div class="otrosb">
                         <label for="corrida">Semana Corrida</label>
-                        <input type="text" id="corrida" placeholder="(Opcional)">
+                        <input type="text" id="corrida" placeholder="(Opcional)" autocomplete="off">
                     </div>
                     <div class="otrosc">
                         <label for="bonos">Bonos</label>
-                        <input type="text" id="bonos" placeholder="(Opcional)">
+                        <input type="text" id="bonos" placeholder="(Opcional)" autocomplete="off">
                     </div>
                     <div class="colacion">
                         <label for="colacion">colacion</label>
-                        <input type="text" id="colacion" placeholder="(Opcional)">
+                        <input type="text" id="colacion" placeholder="(Opcional)" autocomplete="off">
                     </div>
                     <div class="movilizacion">
                         <label for="movilizacion">Movilizacion</label>
-                        <input type="text" id="movilizacion" placeholder="(Opcional)">
+                        <input type="text" id="movilizacion" placeholder="(Opcional)" autocomplete="off">
                     </div>
                     <div class="asignacion">
                         <label for="asignacion">Asignacion familiar</label>
-                        <input type="text" id="asignacion" placeholder="(Opcional)">
+                        <input type="text" id="asignacion" placeholder="(Opcional)" autocomplete="off">
                     </div>
                 </div>
                 <div class="descuentos">
@@ -120,7 +120,7 @@
                     </div>
                     <div class="valor-afp">
                         <label for="valorafp">Total AFP</label>
-                        <input type="text" id="valorafp" placeholder="">
+                        <input type="text" id="valorafp" placeholder="" autocomplete="off">
                     </div>
                     <div class="fonasa">
                         <label for="fonasa">Fonasa</label>
@@ -131,66 +131,47 @@
                     </div>
                     <div class="valor-fonasa">
                         <label for="valorfonasa">Total salud</label>
-                        <input type="text" placeholder="" disabled>
+                        <input type="text" placeholder="" disabled autocomplete="off">
                     </div>
                     <div class="seguro">
                         <label for="seguro">Seguro de cesantía</label>
-                        <input type="text" id="seguro" placeholder="" disabled>
+                        <input type="text" id="seguro" placeholder="" disabled autocomplete="off">
                     </div>
                     <div class="impuesto">
                         <label for="impuesto">Impuesto</label>
-                        <input type="text" id="impuesto" placeholder="" disabled>
+                        <input type="text" id="impuesto" placeholder="" disabled autocomplete="off">
                     </div>
                     <div class="apv">
                         <label for="apv">apv</label>
-                        <input type="text" id="apv" placeholder="(Opcional)">
+                        <input type="text" id="apv" placeholder="(Opcional)" autocomplete="off">
                     </div>
                     <div class="otros-dsctos-legales">
                         <label for="dsctos">Otros Descuentos Legales</label>
-                        <input type="text" id="dsctos" placeholder="(Opcional)">
+                        <input type="text" id="dsctos" placeholder="(Opcional)" autocomplete="off">
                     </div>
                     <div class="otros-dsctos">
                         <label for="otros-dsctos">Otros Descuentos</label>
-                        <input type="text" id="otros-dsctos" placeholder="(Opcional)">
+                        <input type="text" id="otros-dsctos" placeholder="(Opcional)" autocomplete="off">
                     </div>
                 </div>
                 <div class="totales">
                     <div class="haberes">
                         <label for="haberes_totales">Haberes</label>
-                        <input type="text" id="haberes_totales" disabled>
+                        <input type="text" id="haberes_totales" disabled autocomplete="off">
                     </div>
                     <div class="descuentos">
                         <label for="descuentos_totales">descuentos</label>
-                        <input type="text" id="descuentos_totales" disabled>
+                        <input type="text" id="descuentos_totales" disabled autocomplete="off">
                     </div>
                     <div class="sueldo_liquido">
                         <label for="sueldo_liquido">Sueldo Liquido</label>
-                        <input type="text" id="sueldo_liquido" disabled>
+                        <input type="text" id="sueldo_liquido" disabled autocomplete="off">
                     </div>
                 </div>
-                <input type="submit" value="Submit">
-            </form>
+                <button id="btnCalcular">Calcular</button>
+            </div>
         </div>
+        <script src="/assets/js/main.js"></script>
     </main>
-    <script>
-
-        let base = document.getElementById("base")
-        base.addEventListener("keydown", calcularLiquido())
-
-        function calcularLiquido(){
-
-            const form = document.createElement('form');
-            form.action ='';
-            form.method = 'GET';
-
-            const $per_gratificacion = 0.25;
-
-            const $valorgrat = $base.value * $per_gratificacion;
-
-            $valor_grat.innerHTML = $valorgrat.toString();
-
-            alert("se ejecuto la funcion")
-        } 
-    </script>
     </body>
 </html>

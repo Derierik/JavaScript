@@ -143,14 +143,18 @@ main{
         "haberes descuentos sueldo_liquido"
         
         ;
+        justify-content: space-around;
 
         .haberes{
+            display: flex;
             grid-area: haberes;
         }
         .descuentos{
+            display: flex;
             grid-area: descuentos;
         }
         .sueldo_liquido{
+            display: flex;
             grid-area: sueldo_liquido;
         }
 
@@ -177,12 +181,12 @@ main{
         grid-template-columns: 50%;
         grid-template-areas:
         "title          title               "
-        "base           ausente             "
+        "sueldo_base           ausente             "
         "cant-ausente        cant-ausente   "
-        "gratificacion  valor-grat          "
+        "gratificacion  valor_gratificacion "
         "hhee           valor-hhee          "
-        "otrosa          otrosa               "
-        "otrosb          otrosb               "
+        "otrosa          otrosa             "
+        "otrosb          otrosb             "
         "otrosc          otrosc             "
         "asignacion     asignacion          "
         "colacion       movilizacion        "
@@ -192,8 +196,8 @@ main{
             grid-area: title;
         }
 
-        .base{
-            grid-area: base;
+        .sueldo_base{
+            grid-area: sueldo_base;
 
             label{
                 font-size: 14px;
@@ -232,8 +236,8 @@ main{
                 border-bottom: #ccc solid 1px;
             }
         }
-        .valor-grat{
-            grid-area: valor-grat;
+        .valor_gratificacion{
+            grid-area: valor_gratificacion;
         }
         .hhee{
             grid-area: hhee;
