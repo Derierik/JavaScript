@@ -10,6 +10,7 @@
 body{
     /* background-color: #0077b6; */
     font-family: 'Space Grotesk', sans-serif;
+    /* font-size: 12px; */
 }
 
 .card{
@@ -32,19 +33,19 @@ body{
     border-radius: 20px;
 }
 
-form img{
+.login-form img{
     width: 100px;
     height: 100px;
 }
 
-form input[type="text"], input[type="password"]{
+.login-form input[type="text"], input[type="password"]{
     outline: 0;
     border: 1px solid #ccc;
     width: 80%;
     padding: 10px;
 }
 
-form label{
+.login-form label{
     font-weight: 500;
     padding: 10px;
 }
@@ -57,7 +58,7 @@ form label{
     align-items: center;
 }
 
-form button{
+.login-form button{
     outline: 0;
     border: 0;
     background-color: royalblue;
@@ -71,7 +72,7 @@ form button{
     font-weight: 500;
 }
 
-form.button:hover{
+.login-form.button:hover{
     opacity: .75;
 }
 
@@ -85,21 +86,24 @@ header{
 
 main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 20px 20px 20px;
+    text-align: left;
 }
 
 .form{
     display: flex;
     width: 70%;
-    height: 100vh;
+    height: fit-content;
     background-color: #fff;
     border: #ccc solid 1px;
 
     padding: 20px 20px 20px 20px;
 
 }
+
 
 .form-calc{
     display: grid;
@@ -108,43 +112,125 @@ main{
     grid-template-areas: 
     "contrato plazo"
     "haberes descuentos"
+    "totales    totales"
     ;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 10px 10px 10px;
+
+        label{
+            font-size: 14px;
+            text-align: left;
+        }
+
+        select, input{
+            width: 100%;
+            height: 30px;
+            border: none;
+            border-bottom: #ccc solid 1px;
+            background-color: #fff;
+        }
+    }
+    
+    .totales{
+        grid-area: totales;
+        display: grid;
+        grid-template-areas: 
+        
+        "haberes descuentos sueldo_liquido"
+        
+        ;
+
+        .haberes{
+            grid-area: haberes;
+        }
+        .descuentos{
+            grid-area: descuentos;
+        }
+        .sueldo_liquido{
+            grid-area: sueldo_liquido;
+        }
+
+
+    }
+
+    
     .contrato{
         grid-area: contrato;
-        height: fit-content;
+        width: 100%;
+        padding: 10px 10px 10px 10px;
+        
     }
     
     .plazo{
         grid-area: plazo;
+        width: 100%;
+        padding: 10px 10px 10px 10px;
     }
-
+    
     .haberes{
-
+        
         display: grid;
         grid-template-columns: 50%;
         grid-template-areas:
-        "base           base"
-        "ausente        cant-ausente"
-        "gratificacion  valor-grat"
-        "hhee           valor-hhee"
-        "otros          otros"
-        "otros          otros"
-        "asignacion     asignacion"
-        "colacion       movilizacion"
+        "title          title               "
+        "base           ausente             "
+        "cant-ausente        cant-ausente   "
+        "gratificacion  valor-grat          "
+        "hhee           valor-hhee          "
+        "otrosa          otrosa               "
+        "otrosb          otrosb               "
+        "otrosc          otrosc             "
+        "asignacion     asignacion          "
+        "colacion       movilizacion        "
         ;
 
-        
-        .padding{
-            grid-area: padding;
+        .title{
+            grid-area: title;
+        }
+
+        .base{
+            grid-area: base;
+
+            label{
+                font-size: 14px;
+            }
+
+            input{
+
+                border: none;
+                border-bottom: #ccc solid 1px;
+            }
         }
         .ausente{
+            font-size: 14px;
             grid-area: ausente;
         }
         .cant-ausente{
             grid-area: cant-ausente;
+
+            label{
+                font-size: 14px;
+            }
+
+            input{
+                border: none;
+                border-bottom: #ccc solid 1px;
+            }
         }
         .gratificacion{
+            width: 100%;
             grid-area: gratificacion;
+            label{
+                font-size: 14px;
+            }
+            select{
+                border: none;
+                border-bottom: #ccc solid 1px;
+            }
         }
         .valor-grat{
             grid-area: valor-grat;
@@ -155,8 +241,14 @@ main{
         .valor-hhee{
             grid-area: valor-hhee;
         }
-        .otros{
-            grid-area: otros;
+        .otrosa{
+            grid-area: otrosa;
+        }
+        .otrosb{
+            grid-area: otrosb;
+        }
+        .otrosc{
+            grid-area: otrosc;
         }
         .colacion{
             grid-area: colacion;
@@ -173,42 +265,46 @@ main{
         display: grid;
         grid-template-areas: 
 
-        "afp        valor-afp"
-        "fonasa     valor-fonasa"
-        "seguro     seguro"
-        "impuesto   impuesto"
-        "apv        apv"
-        "otros-dsctos-legales otros-dsctos-legales"
-        "otros-dsctos   otros-dsctos"
+        "title      title                           "
+        "afp        valor-afp                       "
+        "fonasa     valor-fonasa                    "
+        "seguro     seguro                          "
+        "impuesto   impuesto                        "
+        "apv        apv                             "
+        "otros-dsctos-legales otros-dsctos-legales  "
+        "otros-dsctos   otros-dsctos                "
         
         ;
 
-            .afp{
-                grid-area: afp;
-            }
-            .valor-afp{
-                grid-area: valor-afp;
-            }
-            .fonasa{
-                grid-area: fonasa;
-            }
-            .valor-fonasa{
-                grid-area: valor-fonasa;
-            }
-            .seguro{
-                grid-area: seguro;
-            }
-            .impuesto{
-                grid-area: impuesto;
-            }
-            .apv{
-                grid-area: apv;
-            }
-            .otros-dsctos-legales{
-                grid-area: otros-dsctos-legales;
-            }
-            .otros-dsctos{
-                grid-area: otros-dsctos;
-            }
+        .title{
+            grid-area: title;
+        }
+        .afp{
+            grid-area: afp;
+        }
+        .valor-afp{
+            grid-area: valor-afp;
+        }
+        .fonasa{
+            grid-area: fonasa;
+        }
+        .valor-fonasa{
+            grid-area: valor-fonasa;
+        }
+        .seguro{
+            grid-area: seguro;
+        }
+        .impuesto{
+            grid-area: impuesto;
+        }
+        .apv{
+            grid-area: apv;
+        }
+        .otros-dsctos-legales{
+            grid-area: otros-dsctos-legales;
+        }
+        .otros-dsctos{
+            grid-area: otros-dsctos;
+        }
     }
 }

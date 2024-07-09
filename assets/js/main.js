@@ -1,106 +1,49 @@
-const persona = {
-    firstName: "coder",
-    lastName: "house",
-    userName: "coderhouse",
-    userPass: "CoderHouse123"
-}
+const $tipo = document.getElementById("tipo"),
+    $plazo = document.getElementById("plazo"),
+    $haberes = document.getElementById("haberes"),
+    $base = document.getElementById("base"),
+    $ausente = document.getElementById("ausente"),
+    $cant_ausente = document.getElementById("cant-ausente"),
+    $gratificacion = document.getElementById("gratificacion"),
+    $valor_grat = document.getElementById("valor_grat"),
+    $hhee = document.getElementById("hhee"),
+    $valor_hhee = document.getElementById("valor-hhee"),
+    $otrosa = document.getElementById("otrosa"),
+    $otrosb = document.getElementById("otrosb"),
+    $otrosc = document.getElementById("otrosc"),
+    $colacion = document.getElementById("colacion"),
+    $movilizacion = document.getElementById("movilizacion"),
+    $asignacion = document.getElementById("asignacion")
+    ;
 
-// const notes = [
-//         {
-//             id: 1,
-//             noteTitle: "To Do",
-//             noteDesc: "Monthly reunion with Specialists teams about every checklist reviewed in the last three months",
-//             noteDate: "12-jun-24"
-//         },
-//         {
-//             id: 2,
-//             noteTitle: "Supermarket List",
-//             noteDesc: "Monthly reunion with Specialists teams about every checklist reviewed in the last three months",
-//             noteDate: "12-jun-24"
-//         },
-//         {
-//             id: 3,
-//             noteTitle: "Other Notes",
-//             noteDesc: "Monthly reunion with Specialists teams about every checklist reviewed in the last three months",
-//             noteDate: "12-jun-24"
-//         }
-//     ];
-
-const nota1 = new Notas("To Do", "Monthly reunion with Specialists teams about every checklist reviewed in the last three months","12-jun-24");
-
-const nota2 = new Notas("Supermarket List", "Monthly reunion with Specialists teams about every checklist reviewed in the last three months","12-jan-24");
-
-const nota3 = new Notas("Other Notes", "Monthly reunion with Specialists teams about every checklist reviewed in the last three months","12-dec-23");
+const $afp = document.getElementById("afp"),
+    $valor_afp = document.getElementById("valor-afp"),
+    $fonasa = document.getElementById("fonasa"),
+    $valor_fonasa = document.getElementById("valor-fonasa"),
+    $seguro = dcument.getElementById("seguro"),
+    $impuesto = document.getElementById("impuesto"),
+    $apv = document.getElementById("apv"),
+    $otros_dsctos_legales = document.getElementById("otros-dsctos-legales"),
+    $otros_dsctos = document.getElementById("otros-dsctos")
+    ;
 
 
-const $submit = document.getElementById("submit"),
-    $password = document.getElementById("userPass"),
-    $username = document.getElementById("userName"),
-    $visible = document.getElementById("visible");
+function calcularLiquido(){
 
-const $greetings = document.getElementById("greetings"),
-    $noteTitle = document.getElementById("noteTitle"),
-    $noteDesc = document.getElementById("noteDesc"),
-    $noteDate = document.getElementById("noteDate");
+    const form = document.createElement('form');
+    form.action ='';
+    form.method = 'GET';
+    
+    const $per_gratificacion = 0.25;
 
-    document.addEventListener("change", (e) =>{
-        if(e.target === $visible){
-            if($visible.checked === false){
-                $password.type = "password";
-            }
-            else
-            {
-                $password.type = "text"
-            }
-        }
-    })
+    const $valorgrat = $base.value * $per_gratificacion;
 
-    document.addEventListener("click", (e) =>{
-        if(e.target === $submit){
-            if($password.value !== "" && $username.value !== ""){
-                e.preventDefault();
-                verificarUsuario($username.value, $password.value);
-                // window.location.href = "home.html";
-            }
-            else
-            {
-            }
-        }
-    })
+    $valor_grat.innerHTML = $valorgrat.toString();
+
+    alert("se ejecuto la funcion")
+
+    
+} 
 
 
-    // console.log(models.persona.userName + ' ' + models.persona.userPass)
-    function verificarUsuario(nombre, pass){
-        if (nombre === persona.userName && pass === persona.userPass){
-            window.location.href = "./templates/home.html";
-        }
-        else
-        {
-            alert("Las credenciales de acceso no son correctas.");
-        }
-    }
 
-    function viewNotes(){
-        $greetings.innerHTML = "Bienvenido! " + persona.firstName + ' '+ persona.lastName;
-        $noteTitle.innerHTML = nota1.noteTitle;
-        $noteDate.innerHTML = nota1.noteDate;
-        $noteDesc.innerHTML = nota1.noteDesc;
-
-        document.getElementById('noteTitle1').innerHTML = nota2.noteTitle;
-        document.getElementById('noteDate1').innerHTML = nota2.noteDate;
-        document.getElementById('noteDesc1').innerHTML = nota2.noteDesc;
-
-        document.getElementById('noteTitle2').innerHTML = nota3.noteTitle;
-        document.getElementById('noteDate2').innerHTML = nota3.noteDate;
-        document.getElementById('noteDesc2').innerHTML = nota3.noteDesc;
-        
-
-        // console.log(notes.noteTitle + notes.noteDesc + notes.noteDate)
-    }
-
-    function Notas(title, desc, date){
-        this.noteTitle = title;
-        this.noteDesc = desc;
-        this.noteDate = date;
-
-    }

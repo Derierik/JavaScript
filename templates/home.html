@@ -12,30 +12,35 @@
         <a href="../index.html">Cerrar Sesion</a>    
     </header>    
     <main>
+        <div class="title">
+            <h1>Calculadora de sueldo liquido</h1>
+        </div>
         <div class="form">
             <form action="" method="POST" class="form-calc">
                 <div class="contrato">
-                        <label for="tipo">Contrato</label>
-                        <select name="" id="tipo">
-                            <option value="0">Mensual</option>
-                            <option value="1">Quincenal</option>
-                            <option value="2">Semanal</option>
-                            <option value="3">Diario</option>
-                        </select>
-                    </div>
-                    <div class="plazo">
-                        <label for="plazo">Plazo contrato</label>
-                        <select name="" id="plazo">
-                            <option value="0">Indefinido</option>
-                            <option value="1">Fijo</option>
-                        </select>
+                    <label for="tipo">Contrato</label>
+                    <select name="" id="tipo">
+                        <option value="0">Mensual</option>
+                        <option value="1">Quincenal</option>
+                        <option value="2">Semanal</option>
+                        <option value="3">Diario</option>
+                    </select>
+                </div>
+                <div class="plazo">
+                    <label for="plazo">Plazo contrato</label>
+                    <select name="" id="plazo">
+                        <option value="0">Indefinido</option>
+                        <option value="1">Fijo</option>
+                    </select>
                 </div>
                 <div class="haberes">
+                    <div class="title">
+                        <h2>Haberes</h2>
+                    </div>
                     <div class="base">
                         <label for="base">Sueldo Base</label>
-                        <input type="text" id="base" placeholder="Sueldo Base">
+                        <input type="text" id="base" placeholder="Sin puntos" onkeyup="calcularLiquido()">
                     </div>
-
                     <div class="ausente">
                         <label for="ausente">Días ausente</label>
                         <select name="" id="ausente">
@@ -45,12 +50,10 @@
                             <option value="3">Si, Fracción</option>
                         </select>
                     </div>
-
-                    <div class="cant-ausente">
+                    <div class="cant-ausente" style="display: none;">
                         <label for="cant-ausente">Cantidad días ausente</label>
                         <input type="text" id="cant-ausente" placeholder="Cantidad de días">
                     </div>
-
                     <div class="gratificacion">
                         <label for="gratificacion">Gratificacion</label>
                         <select name="" id="gratificacion">
@@ -59,35 +62,34 @@
                             <option value="2">Editar</option>
                         </select>
                     </div>
-
                     <div class="valor-grat">
                         <label for="gratificacion">Valor Gratificacion</label>
                         <input type="text" name="gratificacion" id="gratificacion" placeholder="">
                     </div>
-
                     <div class="hhee">
                         <label for="hhee">Horas Extra</label>    
                         <input type="text" id="hhee" placeholder="Cantidad">
                     </div>
-
                     <div class="valor-hhee">
                         <label for="valorhhee">Valor Hrs. extra</label>
-                        <input type="text" id="valorhhee" placeholder="valor hrs. extra">
+                        <input type="text" id="valorhhee" placeholder="">
                     </div>
-                    <div class="otros">
+                    <div class="otrosa">
                         <label for="comisiones">Comisiones</label>
                         <input type="text" id="comisiones" placeholder="(Opcional)"> 
+                    </div>
+                    <div class="otrosb">
                         <label for="corrida">Semana Corrida</label>
                         <input type="text" id="corrida" placeholder="(Opcional)">
+                    </div>
+                    <div class="otrosc">
                         <label for="bonos">Bonos</label>
                         <input type="text" id="bonos" placeholder="(Opcional)">
                     </div>
-
                     <div class="colacion">
                         <label for="colacion">colacion</label>
                         <input type="text" id="colacion" placeholder="(Opcional)">
                     </div>
-
                     <div class="movilizacion">
                         <label for="movilizacion">Movilizacion</label>
                         <input type="text" id="movilizacion" placeholder="(Opcional)">
@@ -96,9 +98,11 @@
                         <label for="asignacion">Asignacion familiar</label>
                         <input type="text" id="asignacion" placeholder="(Opcional)">
                     </div>
-                    
                 </div>
                 <div class="descuentos">
+                    <div class="title">
+                        <h2>Descuentos</h2>
+                    </div>
                     <div class="afp">
                         <label for="afp">AFP</label>
                         <select name="afp" id="afp">
@@ -149,11 +153,44 @@
                         <label for="otros-dsctos">Otros Descuentos</label>
                         <input type="text" id="otros-dsctos" placeholder="(Opcional)">
                     </div>
-                    <input type="text" placeholder="">
                 </div>
+                <div class="totales">
+                    <div class="haberes">
+                        <label for="haberes_totales">Haberes</label>
+                        <input type="text" id="haberes_totales" disabled>
+                    </div>
+                    <div class="descuentos">
+                        <label for="descuentos_totales">descuentos</label>
+                        <input type="text" id="descuentos_totales" disabled>
+                    </div>
+                    <div class="sueldo_liquido">
+                        <label for="sueldo_liquido">Sueldo Liquido</label>
+                        <input type="text" id="sueldo_liquido" disabled>
+                    </div>
+                </div>
+                <input type="submit" value="Submit">
             </form>
         </div>
     </main>
-    <script src="../assets/js/main.js"></script>
+    <script>
+
+        let base = document.getElementById("base")
+        base.addEventListener("keydown", calcularLiquido())
+
+        function calcularLiquido(){
+
+            const form = document.createElement('form');
+            form.action ='';
+            form.method = 'GET';
+
+            const $per_gratificacion = 0.25;
+
+            const $valorgrat = $base.value * $per_gratificacion;
+
+            $valor_grat.innerHTML = $valorgrat.toString();
+
+            alert("se ejecuto la funcion")
+        } 
+    </script>
     </body>
 </html>
