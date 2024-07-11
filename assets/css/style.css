@@ -184,7 +184,7 @@ main{
         "sueldo_base           ausente             "
         "cant-ausente        cant-ausente   "
         "gratificacion  valor_gratificacion "
-        "hhee           valor-hhee          "
+        "hhee           valor_hhee          "
         "otrosa          otrosa             "
         "otrosb          otrosb             "
         "otrosc          otrosc             "
@@ -242,8 +242,8 @@ main{
         .hhee{
             grid-area: hhee;
         }
-        .valor-hhee{
-            grid-area: valor-hhee;
+        .valor_hhee{
+            grid-area: valor_hhee;
         }
         .otrosa{
             grid-area: otrosa;
