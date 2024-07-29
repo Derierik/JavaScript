@@ -4,11 +4,15 @@
             valor_grat = document.getElementById("valor_grat"),
             ausente = document.getElementById("ausente"),
             hhee = document.getElementById("hhee"),
-            valor_hhee = document.getElementById("valorhhee"),
+            valorhhee = document.getElementById("valorhhee"),
             afp = document.getElementById("afp"),
-            valor_afp = document.getElementById("valor-afp")
+            valor_afp = document.getElementById("valorafp"),
+            fonasa = document.getElementById("fonasa"),
+            valor_fonasa = document.getElementById("valorfonasa")
 
-    
+    const usuarios = [{
+
+    }]
     
     
     btnCalcular.addEventListener('click', () => {
@@ -21,6 +25,19 @@
 
     ausente.onchange = function() {
         alert("esta wea cambio")
+    }
+
+    fonasa.onchange = function() {
+
+        if(fonasa.value == 0){
+            valor_fonasa.value = ""
+            valor_fonasa.disabled = true;
+        }
+        else
+        {
+            valor_fonasa.disabled = false;
+        }
+
     }
     
     // calcular.addEventListener('click', ()=>{
@@ -36,7 +53,6 @@
                 let porcentaje_grat = 0.25
                 let valor_por_imm = 4.75
                 porcentaje_grat *= base.value
-                let sueldo_bruto = base += porcentaje_grat
                 valor_por_imm *= valor_imm / 12
 
                 let valor_horas, valor_hhee, valor_total_hhee = 0;
@@ -44,65 +60,75 @@
                 if (document.getElementById("hhee").value !== ""){
                     valor_horas = base.value / 30;
                     valor_hhee = valor_horas * 28;
-                    valor_hhee = valor_hhee / 180;
+                    valor_hhee = valor_hhee / 176;
+                    valor_hhee *= 1.5;
                     valor_total_hhee = valor_hhee * hhee.value;
-                    valorhhee.value = valor_total_hhee;
-                    console.log(valor_horas, valor_hhee, valor_total_hhee)
+                    valorhhee.value = valor_total_hhee.toFixed(0);
                 }
     
                 if(porcentaje_grat < valor_por_imm){
-                    document.getElementById("valor_grat").value = porcentaje_grat
+                    document.getElementById("valor_grat").value = porcentaje_grat.toFixed(3)
     
                 }
                 else
                 {
-                    document.getElementById("valor_grat").value = valor_por_imm
+                    document.getElementById("valor_grat").value = valor_por_imm.toFixed(3)
                 }
     
                 if(afp.value !== 0){
 
+                    console.log(afp.value)
 
-                    let comm_afp, porcentaje_afp = 0
+                    let comm_afp = 0;
 
                     switch(afp.value){
-                        case 1:
-                            comm_afp = sueldo_bruto * 0.10
-                            comm_afp += 0.144
+                        case 1: //  C A P I T A L
+                            comm_afp = 0.0144
                             
-
                             break;  
-
-                        case 2:
-                        break;
-
-                        case 3:
+                        case 2: //  C U P R U M
+                            comm_afp = 0.0144
                             break;
-
-                        case 4:
+                        case 3: //  H A B I T A T
+                            comm_afp = 0.0127
                             break;
-
-                        case 5:
+                        case 4: //  M O D E L O
+                            comm_afp = 0.0058
                             break;
-
-                        case 6:
+                        case 5: // P L A N V I T A L
+                            comm_afp = 0.0116
                             break;
-
-                        case 7:
+                        case 6: // P R O V I D A
+                            comm_afp = 0.0145
                             break;
-
-                        case 8:
+                        case 7: // U N O 
+                            comm_afp = 0.0049
                             break;
-
-                        default:
+                        case 8: // P R I M E R  T R A B A J O
+                            break;
+                        default:    // N O  C O T I Z A
                             break;
                         }    
+
+                        // comm_afp = comm_afp + 0.1;
+
+                        valor_afp.value = comm_afp.toFixed(4);
                         console.log(comm_afp)
                 }
-                                                    
-                                                }
-                                                else
-                                                {
+            }
+            else
+            {
                 valor_grat.value = ""
+            }
+
+            if(fonasa.value == 0){
+
+                let sueldo_bruto = base.value;
+                let gratificacion_valor = valor_grat.value;
+
+                sueldo_bruto += gratificacion_valor
+
+                console.log(sueldo_bruto)
             }
 
         }
