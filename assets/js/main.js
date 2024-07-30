@@ -10,13 +10,20 @@
             fonasa = document.getElementById("fonasa"),
             valor_fonasa = document.getElementById("valorfonasa")
 
-    const usuarios = [{
-
-    }]
+    let form = document.querySelector("form"),
+        btnSubmit = document.getElementById("submit")
     
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+        LogIn();
+    })
     
     btnCalcular.addEventListener('click', () => {
         calcular();
+    })
+
+    btnSubmit.addEventListener('click', () =>{
+        
     })
 
     base.addEventListener('onkeydown', () => {
@@ -39,7 +46,14 @@
         }
 
     }
+
+    const users = {
+        user : "coderhouse",
+        pass : "CoderHouse123"
+
+    }
     
+    console.log(users.user)
     // calcular.addEventListener('click', ()=>{
         //     calcular();
         // })
@@ -138,6 +152,28 @@
         }
         // alert('se ejecuto esta wea')
     }
+
+    function LogIn(users){
+        const userinput = document.getElementById("userName"),
+                passinput = document.getElementById("userPass")
+
+        console.log(userinput.value)
+
+        if(userinput.value !== users.user){
+            alert("No existe este usuario.")
+        }
+        else{
+            if(passinput !== users.pass){
+                alert("Contraseña incorrecta")
+            }
+            else
+            {
+                Response.redirect("/templates/home.html")
+            }
+        }
+    }
+
+
 
 
 
