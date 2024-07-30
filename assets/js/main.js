@@ -9,21 +9,9 @@
             valor_afp = document.getElementById("valorafp"),
             fonasa = document.getElementById("fonasa"),
             valor_fonasa = document.getElementById("valorfonasa")
-
-    let form = document.querySelector("form"),
-        btnSubmit = document.getElementById("submit")
-    
-    form.addEventListener('submit', function(event){
-        event.preventDefault();
-        LogIn();
-    })
     
     btnCalcular.addEventListener('click', () => {
         calcular();
-    })
-
-    btnSubmit.addEventListener('click', () =>{
-        
     })
 
     base.addEventListener('onkeydown', () => {
