@@ -9,6 +9,14 @@
             valor_afp = document.getElementById("valorafp"),
             fonasa = document.getElementById("fonasa"),
             valor_fonasa = document.getElementById("valorfonasa")
+
+    const haberes_totales = document.getElementById("haberes_totales"),
+        descuentos_totales = document.getElementById("descuentos_totales"),
+        sueldo_liquido = document.getElementById("sueldo_liquido"),
+        cant_ausente = document.getElementById("div_cant_ausente"),
+        btnCalcular = document.getElementById("btnCalcular");
+
+        
     
     btnCalcular.addEventListener('click', () => {
         calcular();
@@ -19,7 +27,15 @@
     })
 
     ausente.onchange = function() {
-        alert("esta wea cambio")
+        console.log(ausente.value)
+        if(ausente.value == 1 || ausente.value == 2 || ausente.value == 3)
+        {
+            cant_ausente.style.display = ''
+        }
+        else
+        {
+            cant_ausente.style.display = 'none'
+        }
     }
 
     fonasa.onchange = function() {
@@ -37,21 +53,32 @@
         }
 
     }
+
+    function sessionContents()
+    {
+        const greetings = document.getElementById("greetings")
+        let message = "Bienvenido, " + localStorage.getItem('userName') + "!";
+        greetings.innerHTML = message;
+
+        cant_ausente.style.display = 'none'
+
+    }
         
     function calcular(){
-
+        let sueldobruto, descuentos, sueldoliquido;
+        
         if(base.value !== ""){
-
+            
             if (gratificacion.value == 0){
 
                 //Se inicializan variables con valor de ingreso minimo mensual y porcentaje del 25% del sueldo base
 
                 let valor_imm = 500000
-                let porcentaje_grat = 25
+                let porcentaje_grat = 0.25
 
                 //calcular gratificacion por el ingreso minimo mensual
 
-                let valor_por_imm = 475
+                let valor_por_imm = 4.75
                 porcentaje_grat *= base.value
                 valor_por_imm *= valor_imm / 12
 
@@ -91,20 +118,17 @@
                 else
                 {
                     document.getElementById("valor_grat").value = parseInt(valor_por_imm)
-
-
+                    sueldobruto = parseInt(base.value)+parseInt(valor_por_imm)
+                    
 
                     //Calculo descuentos legales (AFP y Fonasa)
                     //Descuento para AFP : porcentaje de interes mas el 10% del sueldo bruto
                     //Descuento Para Fonasa : Porcentaje del 7% del sueldo bruto
-
-
-
                     if(afp.value !== 0){
 
                         console.log(afp.value)
     
-                        var comm_afp,sueldobruto = 0;
+                        var comm_afp = 0;
     
                         switch(afp.value){
                             case "1": //  C A P I T A L
@@ -140,33 +164,20 @@
                                 break;
                             default:    // N O  C O T I Z A
                                 break;
-                            }    
-    
-                            comm_afp = comm_afp + 0.1;
-                            sueldobruto = base.value * 1
-                            sueldobruto = sueldobruto + (valor_grat.value * 1)
-                            console.log(sueldobruto)
-                            valor_afp.value = comm_afp.toFixed(4);
-                            console.log(comm_afp)
+                        }
+                        
+                        valor_afp.value = sueldobruto * comm_afp;
+                        
                     }
                 }
-
-    
-                
+                console.log(sueldobruto)
+                haberes_totales.value = parseInt(base.value) + parseInt(valor_por_imm);
+                descuentos_totales.value = descuentos;
+                sueldo_liquido.value = sueldoliquido;
             }
             else
             {
                 valor_grat.value = ""
-            }
-
-            if(fonasa.value == 0){
-
-                let sueldo_bruto = base.value;
-                let gratificacion_valor = valor_grat.value;
-
-                sueldo_bruto += gratificacion_valor
-
-                console.log(sueldo_bruto)
             }
 
         }
@@ -174,6 +185,7 @@
         {
             alert('Debe ingresar un valor en -Sueldo Base-')
         }
+
         // alert('se ejecuto esta wea')
     }
 
