@@ -165,14 +165,28 @@
                             default:    // N O  C O T I Z A
                                 break;
                         }
-                        
-                        valor_afp.value = sueldobruto * comm_afp;
+                        comm_afp += 0.1
+                        valor_afp.value = parseInt(sueldobruto * comm_afp);
+                        descuentos = parseInt(valor_afp.value)
                         
                     }
+
+                    //  D E S C U E N T O  F O N A S A   O   I S A P R E
+
+                    if(fonasa.value == 0){
+                        var fonasa_perc = 0.07;
+
+                        valor_fonasa.value = parseInt(sueldobruto * fonasa_perc)
+
+                        descuentos += parseInt(valor_fonasa.value)
+
+                    }
+
                 }
                 console.log(sueldobruto)
                 haberes_totales.value = parseInt(base.value) + parseInt(valor_por_imm);
                 descuentos_totales.value = descuentos;
+                sueldoliquido = parseInt(sueldobruto - descuentos);
                 sueldo_liquido.value = sueldoliquido;
             }
             else

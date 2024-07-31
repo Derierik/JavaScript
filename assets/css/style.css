@@ -1,4 +1,5 @@
 @import url('https://fonts.google.com/specimen/Space+Grotesk');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&display=swap');
 
 *
 {
@@ -9,7 +10,7 @@
 
 body{
     /* background-color: #0077b6; */
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Protest Riot', sans-serif;
     /* font-size: 12px; */
 }
 
@@ -166,6 +167,10 @@ main{
         grid-area: contrato;
         width: 100%;
         padding: 10px 10px 10px 10px;
+
+        label{
+            font-size: larger;
+        }
         
     }
     
@@ -173,6 +178,10 @@ main{
         grid-area: plazo;
         width: 100%;
         padding: 10px 10px 10px 10px;
+
+        label{
+            font-size: larger;
+        }
     }
     
     .haberes{
