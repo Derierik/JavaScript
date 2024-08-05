@@ -18,7 +18,7 @@
 
     const comision_afp = [
         {
-            id: "",
+            id: "0",
             name: "",
             comm_afp:""
         },
@@ -170,6 +170,7 @@
 
                         console.log(afp.value)
 
+                        console.log(comision_afp[afp.value].name)
                         comm_afp = comision_afp[afp.value].comm_afp
                         valor_afp.value = parseInt(sueldobruto * comm_afp);
                         descuentos = parseInt(valor_afp.value)
