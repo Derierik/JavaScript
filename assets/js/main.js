@@ -16,7 +16,48 @@
         cant_ausente = document.getElementById("div_cant_ausente"),
         btnCalcular = document.getElementById("btnCalcular");
 
-        
+    const comision_afp = [
+        {
+            id: "",
+            name: "",
+            comm_afp:""
+        },
+        {
+            id: "1",
+            name: "Capital",
+            comm_afp: 0.0144 + 0.1
+        },
+        {
+            id: "2",
+            name: "Cuprum",
+            comm_afp: 0.0144 + 0.1
+        },
+        {
+            id: "3",
+            name: "Habitat",
+            comm_afp: 0.0127 + 0.1
+        },
+        {
+            id: "4",
+            name: "Modelo",
+            comm_afp: 0.0058 + 0.1
+        },
+        {
+            id: "5",
+            name: "Plan Vital",
+            comm_afp: 0.0116 + 0.1
+        },
+        {
+            id: "6",
+            name: "Provida",
+            comm_afp: 0.0145 + 0.1
+        },
+        {
+            id: "7",
+            name: "Uno",
+            comm_afp: 0.0049 + 0.1
+        }
+    ]
     
     btnCalcular.addEventListener('click', () => {
         calcular();
@@ -126,50 +167,16 @@
                     //Descuento Para Fonasa : Porcentaje del 7% del sueldo bruto
                     if(afp.value !== 0){
 
+
                         console.log(afp.value)
-    
-                        var comm_afp = 0;
-    
-                        switch(afp.value){
-                            case "1": //  C A P I T A L
-                                console.log("Capital")
-                                comm_afp = 0.0144
-                                
-                                break;  
-                            case "2": //  C U P R U M
-                                console.log("Cuprum")
-                                comm_afp = 0.0144
-                                break;
-                            case "3": //  H A B I T A T
-                                console.log("Habitat")  
-                                comm_afp = 0.0127
-                                break;
-                            case "4": //  M O D E L O
-                                console.log("Modelo")
-                                comm_afp = 0.0058
-                                break;
-                            case "5": // P L A N V I T A L
-                            console.log("Planvital")
-                                comm_afp = 0.0116
-                                break;
-                            case "6": // P R O V I D A
-                            console.log("Provida")
-                                comm_afp = 0.0145
-                                break;
-                            case "7": // U N O 
-                            console.log("Uno")
-                                comm_afp = 0.0049
-                                break;
-                            case "8": // P R I M E R  T R A B A J O
-                                break;
-                            default:    // N O  C O T I Z A
-                                break;
-                        }
-                        comm_afp += 0.1
+
+                        comm_afp = comision_afp[afp.value].comm_afp
                         valor_afp.value = parseInt(sueldobruto * comm_afp);
                         descuentos = parseInt(valor_afp.value)
                         
                     }
+
+
 
                     //  D E S C U E N T O  F O N A S A   O   I S A P R E
 
