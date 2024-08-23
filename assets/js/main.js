@@ -140,9 +140,6 @@
                     //Descuento Para Fonasa : Porcentaje del 7% del sueldo bruto
                     if(afp.value !== 0){
 
-
-                        console.log(afp.value)
-
                         valor_afp.value = parseInt(sueldobruto * afp.value);
                         descuentos = parseInt(valor_afp.value)
                         
@@ -162,7 +159,6 @@
                     }
 
                 }
-                console.log(sueldobruto)
                 haberes_totales.value = parseInt(base.value) + parseInt(valor_por_imm);
                 descuentos_totales.value = descuentos;
                 sueldoliquido = parseInt(sueldobruto - descuentos);
@@ -176,29 +172,29 @@
         }
         else
         {
-            alert('Debe ingresar un valor en -Sueldo Base-')
+            mensajeAlerta(0)
         }
 
         // alert('se ejecuto esta wea')
     }
 
-    function LogIn(users){
-        const userinput = document.getElementById("userName"),
-                passinput = document.getElementById("userPass")
+    function mensajeAlerta(mensaje){
 
-        console.log(userinput.value)
-
-        if(userinput.value !== users.user){
-            alert("No existe este usuario.")
-        }
-        else{
-            if(passinput !== users.pass){
-                alert("Contraseña incorrecta")
-            }
-            else
-            {
-                Response.redirect("/templates/home.html")
-            }
+        switch (mensaje)
+        {
+            case 0:
+                Toastify({
+                    text: "Debe ingresar un sueldo bruto",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "linear-gradient(to right, #CAC531, #F3F9A7)",
+                    }// Callback after click
+                  }).showToast();
+                break;
         }
     }
 
