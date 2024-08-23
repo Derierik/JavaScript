@@ -1,0 +1,52 @@
+[
+    {
+        "id": 0,
+        "name": "Seleccione una opcion",
+        "comm_afp": 0
+    },
+    {
+        "id": 1,
+        "name": "Capital",
+        "comm_afp": 0.1144
+    },
+    {
+        "id": 2,
+        "name": "Cuprum",
+        "comm_afp": 0.1144
+    },
+    {
+        "id": 3,
+        "name": "Habitat",
+        "comm_afp": 0.1127
+    },
+    {
+        "id": 4,
+        "name": "Modelo",
+        "comm_afp": 0.1058
+    },
+    {
+        "id": 5,
+        "name": "Plan Vital",
+        "comm_afp": 0.1116
+    },
+    {
+        "id": 6,
+        "name": "Provida",
+        "comm_afp": 0.1145
+    },
+    {
+        "id": 7,
+        "name": "Uno",
+        "comm_afp": 0.1049
+    },
+    {
+        "id": 8,
+        "name": "Primer Trabajo",
+        "comm_afp": 0
+    },
+    {
+        "id": 9,
+        "name": "No Cotiza",
+        "comm_afp": 0
+    }
+]

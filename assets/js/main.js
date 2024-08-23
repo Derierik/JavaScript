@@ -16,48 +16,21 @@
         cant_ausente = document.getElementById("div_cant_ausente"),
         btnCalcular = document.getElementById("btnCalcular");
 
-    const comision_afp = [
-        {
-            id: "0",
-            name: "",
-            comm_afp:""
-        },
-        {
-            id: "1",
-            name: "Capital",
-            comm_afp: 0.0144 + 0.1
-        },
-        {
-            id: "2",
-            name: "Cuprum",
-            comm_afp: 0.0144 + 0.1
-        },
-        {
-            id: "3",
-            name: "Habitat",
-            comm_afp: 0.0127 + 0.1
-        },
-        {
-            id: "4",
-            name: "Modelo",
-            comm_afp: 0.0058 + 0.1
-        },
-        {
-            id: "5",
-            name: "Plan Vital",
-            comm_afp: 0.0116 + 0.1
-        },
-        {
-            id: "6",
-            name: "Provida",
-            comm_afp: 0.0145 + 0.1
-        },
-        {
-            id: "7",
-            name: "Uno",
-            comm_afp: 0.0049 + 0.1
-        }
-    ]
+    fetch('../assets/js/data.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach((data) => {
+                const option = document.createElement('option');
+
+                option.value = data.comm_afp
+                option.innerHTML = `
+                    ${data.name}
+                `;
+
+                afp.appendChild(option)
+
+            });
+        });
     
     btnCalcular.addEventListener('click', () => {
         calcular();
@@ -170,9 +143,7 @@
 
                         console.log(afp.value)
 
-                        console.log(comision_afp[afp.value].name)
-                        comm_afp = comision_afp[afp.value].comm_afp
-                        valor_afp.value = parseInt(sueldobruto * comm_afp);
+                        valor_afp.value = parseInt(sueldobruto * afp.value);
                         descuentos = parseInt(valor_afp.value)
                         
                     }
