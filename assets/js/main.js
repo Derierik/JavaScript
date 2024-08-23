@@ -41,7 +41,6 @@
     })
 
     ausente.onchange = function() {
-        console.log(ausente.value)
         if(ausente.value == 1 || ausente.value == 2 || ausente.value == 3)
         {
             cant_ausente.style.display = ''
@@ -70,6 +69,9 @@
 
     function sessionContents()
     {
+        
+        mensajeAlerta(1);
+
         const greetings = document.getElementById("greetings")
         let message = "Bienvenido, " + localStorage.getItem('userName') + "!";
         greetings.innerHTML = message;
@@ -191,9 +193,22 @@
                     position: "center", // `left`, `center` or `right`
                     stopOnFocus: true, // Prevents dismissing of toast on hover
                     style: {
-                      background: "linear-gradient(to right, #CAC531, #F3F9A7)",
+                        background: "linear-gradient(to right, #CAC531, #F3F9A7)",
                     }// Callback after click
-                  }).showToast();
+                }).showToast();
+                break;
+            case 1:
+                Toastify({
+                    text: "Sesion Iniciada",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "linear-gradient(to right, #44A08D, #093637)",
+                    }// Callback after click
+                }).showToast();
                 break;
         }
     }
